@@ -2,17 +2,6 @@ version: "2"
 services:
   app_ian:
     build: .
-    links:
-      - db_ian
     ports:
       - "3000:5000"
-  db_ian:
-    image: mysql:5.7
-    restart: unless-stopped
-    ports:
-      - "30000:3306"
-    environment:
-      MYSQL_DATABASE: dbtst
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro
+  

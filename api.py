@@ -13,7 +13,7 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_DB'] = 'dbtst'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = '172.24.0.2'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
