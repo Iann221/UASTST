@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+    <p>Masukkan data baru yang ingin dimasukkan</p>
+    <label >NIM: </label>
+    <input type="text" placeholder="NIM" id="nim">
+    <label >Nama: </label>
+    <input type="text" placeholder="NAMA" id="nama">
+    <label >Jurusan: </label>
+    <input type="text" placeholder="JURUSAN" id="jurusan">
+    <label >Angkatan: </label>
+    <input type="text" placeholder="ANGKATAN" id="angkatan">
+    <br>
+    <br>
+    <button onclick="submit()">SUBMIT</button>
+    <br>
+    <br>
+    <a id="tulisan"></a>
+    <br>
+    <br>
+    <form action="/home">
+        <input type="submit" value="Kembali ke Halaman Utama">
+    </form><br>
+</body>
+<script>
+    function submit() {
+        $.ajax({
+            url: '/create',
+            method: 'post',
+            data: {
+                'nama': $('#nama').val(),
+                'nim': $('#nim').val(),
+                'jurusan': $('#jurusan').val(),
+                'angkatan': $('#angkatan').val(),
+            },
+            success: function (response) {
+                //console.log(JSON.stringify(request));
+                console.log(response);
+                $('#tulisan').html('data berhasil ditambah');
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
+    }
+</script>
+</html>

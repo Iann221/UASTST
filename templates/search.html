@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+    <label >Masukkan nama: </label>
+    <input type="text" placeholder="NAMA" id="carinama">
+    <br>
+    <p>untuk mengetes pengambilan data, isi dengan masukkan nama 'ian' (tanpa kutip)</p>
+    <br>
+    <button onclick="cari()">CARI</button>
+    <br>
+    <br>
+    <a id="hasilcari"></a>
+    <br>
+    <br>
+    <form action="/home">
+        <input type="submit" value="Kembali ke Halaman Utama">
+    </form><br>
+</body>
+<script>
+    function cari() {
+        $.ajax({
+            url: '/user',
+            method: 'get',
+            data: {
+                'carinama': $('#carinama').val(),
+            }, 
+            success: function (response) {
+                console.log(response);
+                if(response.hasil.length ===0){
+                    $('#hasilcari').html('tidak ditemukan');
+                } else {
+                    $('#hasilcari').html(response.hasil[0].nim + ' ' + response.hasil[0].nama + ' ' + response.hasil[0].jurusan + ' ' + response.hasil[0].angkatan);
+                }
+                //$('#hasilcari').html(<table><tr><td> response.hasil[0].nim </td></tr></table>);
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        })
+    }
+</script>
+</html>

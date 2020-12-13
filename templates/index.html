@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<head>
+<title>halaman awal</title>
+</head>
+<body>
+    <div class="container">
+    <h1>NIM FINDER</h1>
+    <p>selamat datang di NIM Finder Vincentius Ian Widi Nugroho 18218034</p>
+    <p>Silakan klik tombol masuk</p>
+    <form action="/home">
+        <input type="submit" value="Masuk">
+    </form>
+    <p>Anda akan diarahkan untuk login jika belum</p>
+</body>
+
+<!-- <html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+    <a href="/login">LOGIN</a>
+    <input type="text" placeholder="NAMA" id="nama">
+    <input type="text" placeholder="NIM" id="nim">
+    <input type="text" placeholder="JURUSAN" id="jurusan">
+    <input type="text" placeholder="ANGKATAN" id="angkatan">
+    <button onclick="submit()">SUBMIT</button>
+    <a id="tulisan"></a>
+</body>
+<script>
+    function submit() {
+        $.ajax({
+            url: '/create',
+            method: 'post',
+            data: {
+                'nama': $('#nama').val(),
+                'nim': $('#nim').val(),
+                'jurusan': $('#jurusan').val(),
+                'angkatan': $('#angkatan').val(),
+            },
+            success: function (response) {
+                console.log(response);
+                $('#tulisan').html('data berhasil ditambah');
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
+    }
+</script>
+</html> -->
+
+

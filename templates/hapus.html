@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+    <label >Masukkan nim mahasiswa yang ingin dihapus: </label>
+    <input type="text" placeholder="NIM" id="carinim">
+    <br>
+    <br>
+    <button onclick="hapusdata()">HAPUS</button>
+    <br>
+    <br>
+    <a id="hasilcari"></a>
+    <br>
+    <br>
+    <form action="/home">
+        <input type="submit" value="Kembali ke Halaman Utama">
+    </form><br>
+</body>
+<script>
+    function hapusdata() {
+        $.ajax({
+            url: '/delete',
+            method: 'delete',
+            data: {
+                'carinim': $('#carinim').val(),
+            },
+            success: function (response) {
+                console.log(response);
+                $('#hasilcari').html('data berhasil dihapus');
+                // $('#hasilcari').html('<table><tr><td>response.nim</td></tr></table>');
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
+    }
+</script>
+</html>
