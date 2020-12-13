@@ -3,7 +3,7 @@ services:
   app_ian:
     build: .
     links:
-      - db
+      - db_ian
     ports:
       - "3000:5000"
   db_ian:
