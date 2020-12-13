@@ -1,5 +1,12 @@
 FROM python
-WORKDIR /app
-ADD . /app
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# Bundle app source
+COPY . /usr/src/app
+
+EXPOSE 5000
 RUN pip install -r requirements.txt
-CMD {"python","app.py"}
+ENTRYPOINT ["python"]
+CMD ["main.py"]
